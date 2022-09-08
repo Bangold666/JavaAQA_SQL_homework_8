@@ -10,10 +10,10 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class DashboardPage {
 
-    private SelenideElement heading = $("[data-test-id='dashboard']");
-    private ElementsCollection cardLine = $$("body .list__item div");
     private final String balanceStart = "баланс: ";
     private final String balanceFinish = " р.";
+    private final SelenideElement heading = $("[data-test-id='dashboard']");
+    private final ElementsCollection cardLine = $$("body .list__item div");
 
     public DashboardPage() {
         heading.shouldBe(Condition.visible);

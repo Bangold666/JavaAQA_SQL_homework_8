@@ -5,7 +5,7 @@ import lombok.SneakyThrows;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
-import ru.netology.mode.User;
+import ru.netology.User.User;
 
 import java.sql.DriverManager;
 
@@ -41,7 +41,7 @@ public class DataHelper {
         try (
                 var conn = DriverManager.getConnection(
                         "jdbc:mysql://localhost:3306/app", "app", "pass"
-                );
+                )
 
         ) {
             return runner.query(conn, sqlRequestSortByTime, user.getId(), new ScalarHandler<>());
@@ -59,7 +59,7 @@ public class DataHelper {
         try (
                 var conn = DriverManager.getConnection(
                         "jdbc:mysql://localhost:3306/app", "app", "pass"
-                );
+                )
         ) {
             runner.update(conn, sqlDeleteAllAuthCodes);
             runner.update(conn, sqlDeleteAllCards);
@@ -88,7 +88,7 @@ public class DataHelper {
         try (
                 var conn = DriverManager.getConnection(
                         "jdbc:mysql://localhost:3306/app", "app", "pass"
-                );
+                )
 
         ) {
             runner.update(conn, sqlInsertUsers, vasyaId, vasyaLogin, vasyaPass);
@@ -111,7 +111,7 @@ public class DataHelper {
         try (
                 var conn = DriverManager.getConnection(
                         "jdbc:mysql://localhost:3306/app", "app", "pass"
-                );
+                )
 
         ) {
             runner.update(conn, sqlAddUser,
@@ -146,7 +146,7 @@ public class DataHelper {
         try (
                 var conn = DriverManager.getConnection(
                         "jdbc:mysql://localhost:3306/app", "app", "pass"
-                );
+                )
 
         ) {
             return runner.query(conn, sqlRequestTakeUserId, login, new ScalarHandler<>());
